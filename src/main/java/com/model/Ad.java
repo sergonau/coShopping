@@ -1,9 +1,9 @@
-package com;
+package com.model;
 
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 //TODO create new db
 //TODO create table in db
@@ -24,7 +24,7 @@ public class Ad {
     //many-to-one
     private Users owner;
     //many-to-one
-    private List<Users> participants;
+    private Users participants;
 
     public Ad(String itemName, Integer totalPrice, String city, Date dateExpires, Date dateCreated, Users owner) {
         this.itemName = itemName;
@@ -37,43 +37,58 @@ public class Ad {
         this.isActive = 1;
     }
 
+
+    @Id
+    @SequenceGenerator(name = "TEST_SEQ", sequenceName = "AD_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TEST_SEQ")
     public Long getId() {
         return id;
     }
 
+    @Column(name = "ITEM_NAME")
     public String getItemName() {
         return itemName;
     }
 
+    @Column(name = "TOTAL_PRICE")
     public Integer getTotalPrice() {
         return totalPrice;
     }
 
+    @Column(name = "CITY")
     public String getCity() {
         return city;
     }
 
+    @Column(name = "DATE_EXPIRES")
     public Date getDateExpires() {
         return dateExpires;
     }
 
+    @Column(name = "DATE_CREATED")
     public Date getDateCreated() {
         return dateCreated;
     }
 
+    @Column(name = "DATE_EDITED")
     public Date getDateEdited() {
         return dateEdited;
     }
 
+    @Column(name = "IS_ACTIVE")
     public Integer getIsActive() {
         return isActive;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "OWNER_ID")
     public Users getOwner() {
         return owner;
     }
 
-    public List<Users> getParticipants() {
+    @ManyToOne
+    @JoinColumn(name = "PARTICIPANTS_ID")
+    public Users getParticipants() {
         return participants;
     }
 

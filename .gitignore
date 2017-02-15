@@ -1,0 +1,8 @@
+*.iml
+.idea/
+target/
+web/.META-INF
+web/WEB-INF/.classes
+web/WEB-INF/.lib
+src/main/resources/rebel.xml
+src/main/web/WEB-INF/spring-servlet.xml

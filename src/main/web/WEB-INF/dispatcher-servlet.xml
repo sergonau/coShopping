@@ -14,21 +14,16 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
-    <!--<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>-->
-    <!--<property name="url" value="jdbc:oracle:thin:@socialnetwork.cznha1udzika.eu-central-1.rds.amazonaws.com:1521:orcl"/>-->
-    <!--<property name="username" value="main"/>-->
-    <!--<property name="password" value="zxcvbnmasdsdsd"/>-->
-    <!--</bean>-->
+    <context:component-scan base-package="com.config"/>
 
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-        <property name="url" value="jdbc:oracle:thin:@coshopping.cpqlxdf98bpk.eu-central-1.rds.amazonaws.com:1521:orcl" />
-        <property name="username" value="main" />
-        <property name="password" value="12345678" />
-    </bean>
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@project.cznha1udzika.eu-central-1.rds.amazonaws.com:1521:orcl"/>
+        <property name="username" value="main"/>
+        <property name="password" value="zxcvbnmasdsdsd"/>
+    </bean>-->
 
-    <bean id="entityManagerFactory"
+    <!--<bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
           p:packagesToScan="com"
           p:dataSource-ref="dataSource">
@@ -37,28 +32,25 @@
                 <property name="showSql" value="false"/>
             </bean>
         </property>
-    </bean>
+    </bean>-->
 
     <!-- Transactions -->
-    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    <!--<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
-    </bean>
+    </bean>-->
     <!-- enable the configuration of transactional behavior based on annotations -->
-    <tx:annotation-driven transaction-manager="transactionManager"/>
-
+    <!--<tx:annotation-driven transaction-manager="transactionManager"/>
     <context:component-scan base-package="com"/>
-
-    <!-- Tell the container that we are going to use annotations -->
-    <context:annotation-config/>
-
-    <mvc:annotation-driven/>
+    <!- Tell the container that we are going to use annotations -->
+    <!--<context:annotation-config/>
+     <mvc:annotation-driven/>-->
 
     <!--<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
     <!--<property name="prefix" value="/WEB-INF/views/"/>-->
     <!--<property name="suffix" value=".jsp"/>-->
     <!--</bean>-->
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+    <!--<bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="contentType" value="text/html; charset=UTF-8"/>
     </bean>
@@ -67,7 +59,5 @@
             <value>/</value>
         </property>
     </bean>
-
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
-
+    <mvc:resources mapping="/resources/**" location="/resources/"/>-->
 </beans>

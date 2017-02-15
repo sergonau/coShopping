@@ -1,4 +1,4 @@
-package com;
+package com.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,14 +9,12 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
-public class Test {
+public class HomeController {
 
-    @RequestMapping(value = "/test")
-    public ModelAndView test(){
+    @RequestMapping(value = "/")
+    public ModelAndView mainPage() {
         ModelAndView modelAndView = new ModelAndView("index.vm");
-
         modelAndView.addObject("name", "Sergey");
         return modelAndView;
-
     }
 }
