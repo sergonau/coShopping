@@ -1,7 +1,7 @@
 package com.dao;
 
 public interface AbstractDAO<T> {
-    T save(T t);
+    public T save(T t);
 
  //   T update(T t);
 
