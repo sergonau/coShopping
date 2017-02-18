@@ -8,9 +8,9 @@ public interface UserService {
 
     Users saveUser(Users user);
 
-    String registerUser(Users users);
+    String register(Users users);
 
-    Users getByUserName(String userName);
+    Users getByEmail(String email);
 
    /* List<User> getAll();
 

@@ -22,7 +22,8 @@ public class AbstractDAOImpl<T extends BaseEntity> implements AbstractDAO<T> {
     public T save(T t) {
         if (t.getId() == null)
             entityManager.persist(t);
-        else entityManager.merge(t);
+        else
+            t = entityManager.merge(t);
         return t;
     }
 

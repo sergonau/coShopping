@@ -1,13 +1,15 @@
 package com.model;
 
 
+import com.dao.BaseEntity;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
 //table
-public class FriendRelation {
+public class FriendRelation extends BaseEntity {
 
 
     private Long Id;

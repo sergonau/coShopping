@@ -18,6 +18,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 import org.springframework.web.servlet.view.velocity.VelocityConfigurer;
 import org.springframework.web.servlet.view.velocity.VelocityViewResolver;
 
@@ -49,6 +50,21 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         em.setJpaProperties(additionalProperties());
 
         return em;
+    }
+
+    @Bean
+    public SimpleMappingExceptionResolver exceptionResolver() {
+        SimpleMappingExceptionResolver exceptionResolver = new SimpleMappingExceptionResolver();
+
+        Properties exceptionMappings = new Properties();
+        exceptionMappings.put("java.lang.Exception", "error");
+        exceptionResolver.setExceptionMappings(exceptionMappings);
+
+
+        // TODO: 18.02.17 Error vm
+        exceptionResolver.setDefaultErrorView("error.vm");
+
+        return exceptionResolver;
     }
 
 

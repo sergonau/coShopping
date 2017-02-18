@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String registerUser(Users user) {
+    public String register(Users user) {
         Users users = userDAO.getByEmail(user.getEmail());
 
         if (users != null)
@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Users getByUserName(String email) {
+    public Users getByEmail(String email) {
         return userDAO.getByEmail(email);
     }
 

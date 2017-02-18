@@ -1,6 +1,8 @@
 package com.model;
 
 
+import com.dao.BaseEntity;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -11,7 +13,7 @@ import java.util.List;
 //TODO create test page to display test ad
 
 
-public class Ad {
+public class Ad extends BaseEntity{
     private Long id;
     private String itemName;
     private Integer totalPrice;
@@ -90,6 +92,46 @@ public class Ad {
     @JoinColumn(name = "PARTICIPANTS_ID")
     public Users getParticipants() {
         return participants;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public void setTotalPrice(Integer totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setDateExpires(Date dateExpires) {
+        this.dateExpires = dateExpires;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public void setDateEdited(Date dateEdited) {
+        this.dateEdited = dateEdited;
+    }
+
+    public void setIsActive(Integer isActive) {
+        this.isActive = isActive;
+    }
+
+    public void setOwner(Users owner) {
+        this.owner = owner;
+    }
+
+    public void setParticipants(Users participants) {
+        this.participants = participants;
     }
 
     //create new project from scratch
